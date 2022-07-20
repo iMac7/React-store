@@ -1,0 +1,70 @@
+.container{
+    padding: 1rem;
+    border-top: 1px solid rgb(194, 194, 194);
+    border-bottom: 1px solid rgb(194, 194, 194);
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    height: fit-content;
+}
+
+.form{
+    width: 50%;
+}
+
+.right{
+    display: flex;
+    max-width: 50%;
+    margin-left: auto;
+    position: relative;
+}
+
+.counter{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.button{
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: white;
+    color: black;
+}
+
+.size{
+    width: fit-content;
+    height: 3rem;
+    transition: 0.25s;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    margin: 0 10px 0 0;
+}
+
+.activeSize{
+    color: white;
+    background-color: black;
+}
+
+
+.cartimg{
+    width: 10vw;
+    height: 25vh;
+}
+
+#buttons{
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    gap: 1rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+#buttons svg:hover{
+    cursor: pointer;
+}

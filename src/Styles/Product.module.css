@@ -1,0 +1,114 @@
+/* product css*/
+fieldset{
+    border: none;
+    margin-bottom: 1rem;
+}
+
+legend{
+    font-weight: 500;
+}
+
+h3{
+    margin-left: 0;
+}
+
+.fieldset1{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
+
+fieldset div{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: min-content;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset div div{
+    position: absolute;
+    color: white;
+    z-index: 3;
+}
+
+.size{
+    appearance: none;
+    width: 25%;
+    height: 45px;
+    transition: 0.25s;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    margin: 0 10px 0 0;
+}
+
+.activeSize{
+    color: white;
+    background-color: black;
+}
+
+.color{
+    width: 30px;
+    height: 30px;
+    margin: 0 10px 0 0;
+    border: none;
+}
+
+.activeColor{
+    border: 2px solid gray;
+    box-sizing: content-box;
+}
+
+button{
+    width: 292px;
+    height: 52px;
+    background-color: green;
+    color: white;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.cartbtn:active{
+    background-color: rgb(1, 177, 1);
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+
+.html{
+    margin-top: 2rem;
+    max-width: 30vw;
+    max-height: 40vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+
+.html::-webkit-scrollbar{
+    display: none;
+}
+
+/* cartcomponent css */
+/* .container{
+    height: fit-content;
+    max-height: 65vh;
+    overflow: scroll;
+}
+
+.container::-webkit-scrollbar{
+    display: none;
+} */
+
+
+
+
+
+
+
