@@ -21,7 +21,6 @@ export default class CartComponent extends Component {
   render() {
     return (
       <div className={styles.container}>
-
       { 
         this.props.cart.map(item => ( item &&
           <div className={styles1.container} key={item.name}>
@@ -100,7 +99,7 @@ export default class CartComponent extends Component {
               <div id={styles1.buttons}>
                   <svg 
                   onClick={() => {
-                    if(this.state.index ===0) return
+                    if(this.state.gallery[item.id] ===0 || undefined) return
                     else this.changeimg({index: (this.state.gallery[item.id] || 0) -1}, item.id)
                   }}
                   width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,7 +109,7 @@ export default class CartComponent extends Component {
 
                   <svg 
                   onClick={() => {
-                    if(this.state.gallery[item.id] ===item.gallery.length-1) return
+                    if((this.state.gallery[item.id] ===(item.gallery.length-1)) || item.gallery.length===1) return
                     else this.changeimg({index: (this.state.gallery[item.id] || 0) +1}, item.id)
                   }}
                   width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
