@@ -1,44 +1,30 @@
 import React, { Component } from 'react'
 import Product from '../Components/Product'
 import styles from '../Styles/Description.module.css'
-import { gql } from '@apollo/client'
+import { get_description } from '../Graphql/Queries'
 import { Query } from '@apollo/client/react/components';
 
 
 export default class Description extends Component {
 
+  constructor(){
+    super()
+
+    this.state = {
+      selectedimg: undefined
+    }
+  }
+
+  componentDidMount(){
+    localStorage.setItem('url',window.location.pathname)
+  }
+
+  setImage(img){
+    if(img=== this.state.selectedimg) return
+    return this.setState((currentstate) => {return {selectedimg: img}})
+  }
+
   render() {
-    const get_description = gql`
-    query getProduct($id: String!){
-        product(id: $id){
-          name,
-          inStock,
-          gallery,
-          description,
-          category,
-          brand,
-          prices{
-            currency{
-              label,
-              symbol
-            },
-            amount
-          },
-          attributes{
-          id,
-          name,
-          type,
-          items{
-            displayValue, 
-            value,
-            id
-          }
-        }
-      }
-    }    
-  `
-
-
     return (
 
       <Query query={get_description} 
@@ -46,17 +32,17 @@ export default class Description extends Component {
       >
       {({loading, data})=> {
         if(loading) return <h2>loading...</h2>
-
-        // console.log(data.product)
-
         
         return(
         <div className={styles.description}>
           <div className={styles.side}>
-            {data.product.gallery.map(image => <img key={image} src={image} className={styles.sideimg} alt="img" />)}
+            {data.product.gallery.map(image => (
+            <img key={image} src={image} className={styles.sideimg} alt="img" 
+            onClick={() =>  this.setImage(image)}/>
+            ))}
           </div>
 
-          <img src={data.product.gallery[0]} className={styles.centerimg} alt="" />
+          <img src={this.state.selectedimg || data.product.gallery[0]} className={styles.centerimg} alt="" />
 
           <Product product={data.product} addtocart={this.props.addtocart}
           id={this.props.match.params.id}

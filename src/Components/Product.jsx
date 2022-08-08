@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import parse from 'html-react-parser'
 import styles from '../Styles/Product.module.css'
 
 export default class Product extends Component {
@@ -16,6 +17,7 @@ export default class Product extends Component {
       gallery: undefined,
       allAttributes: undefined,
       count: 1,
+      message: "",
     };
 
     }
@@ -29,11 +31,15 @@ export default class Product extends Component {
       () => {this.props.addtocart(this.state)}) //callback needed to update just after state update
     }
 
+    setMessage(message){
+      this.setState((currentState) => {return {message}})
+    }
+
 
   render() {
     return (
       <div className={styles.product}>
-        {/* {console.log(this.props.product.attributes)} */}
+
         <form action="" className={styles.form}>
             <h2>{this.props.product.name}</h2>
             <h3>{this.props.product.brand}</h3>
@@ -90,19 +96,25 @@ export default class Product extends Component {
 
             <button className={styles.cartbtn} onClick={(e) => {
               e.preventDefault()
-              this.props.product.attributes.length === Object.keys(this.state.attributes).length &&
-              this.setProduct(
-                this.props.id ,
-                this.props.product.name,
-                this.props.product.brand,
-                this.props.product.prices,
-                this.props.product.gallery,
-                this.props.product.attributes)
+              if(!this.props.product.inStock){
+                this.setMessage("item not in stock")
+                setTimeout(() => this.setMessage(""), 2000);
+              }else{
+                this.props.product.attributes.length === Object.keys(this.state.attributes).length &&
+                this.setProduct(
+                  this.props.id ,
+                  this.props.product.name,
+                  this.props.product.brand,
+                  this.props.product.prices,
+                  this.props.product.gallery,
+                  this.props.product.attributes)
+              }
             }}
-            disabled={!this.props.product.inStock}
             >ADD TO CART</button>
 
-            <div className={styles.html} dangerouslySetInnerHTML={{__html:this.props.product.description}}></div>
+            <p className={styles.message}>{this.state.message}</p>
+
+            <div className={styles.html}>{parse(this.props.product.description)}</div>
 
         </form>
 

@@ -80,6 +80,11 @@ button:disabled{
     cursor: not-allowed;
 }
 
+.message{
+    font-weight: 800;
+    color: rgb(255, 131, 131);
+}
+
 .html{
     margin-top: 2rem;
     max-width: 30vw;
@@ -88,27 +93,5 @@ button:disabled{
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    overflow: scroll;
+    overflow: auto;
 }
-
-.html::-webkit-scrollbar{
-    display: none;
-}
-
-/* cartcomponent css */
-.container{
-    height: fit-content;
-    max-height: 65vh;
-    overflow: scroll;
-}
-
-.container::-webkit-scrollbar{
-    display: none;
-}
-
-
-
-
-
-
-

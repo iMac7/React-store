@@ -1,21 +1,24 @@
+.outer{
+    height: fit-content;
+    max-height: 65vh;
+    overflow: auto;
+    min-width: 25vw;
+}
+
 .container{
-    padding: 1rem;
-    border-top: 1px solid rgb(194, 194, 194);
-    border-bottom: 1px solid rgb(194, 194, 194);
+    margin-top: 2rem;
     display: flex;
-    justify-content: space-around;
-    gap: 10px;
+    justify-content: space-between  ;
+}
+
+.cartContainer{
+    border-bottom: 1px solid rgb(205, 205, 205);
+    margin: 0;
+    padding: .5rem 0;
 }
 
 .form{
-    width: 50%;
-}
-
-.right{
-    display: flex;
-    max-width: 50%;
-    margin-left: auto;
-    position: relative;
+    width: fit-content;
 }
 
 .counter{
@@ -35,7 +38,8 @@
 
 .size{
     width: fit-content;
-    height: 3rem;
+    min-width: 2rem;
+    height: 2rem;
     transition: 0.25s;
     color: black;
     background-color: white;
@@ -48,20 +52,36 @@
     background-color: black;
 }
 
+.color{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .5rem;
+    border: none;
+}
+
+.activeColor{
+    border: 2px solid green;
+}
+
+.right{
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    position: relative;
+}
 
 .cartimg{
+    height: 20vh;
     width: 10vw;
-    height: 25vh;
 }
 
 #buttons{
     display: flex;
+    gap: 1rem;
+    height: fit-content;
     position: absolute;
     bottom: 1rem;
     right: 1rem;
-    gap: 1rem;
-    width: fit-content;
-    height: fit-content;
 }
 
 #buttons svg:hover{

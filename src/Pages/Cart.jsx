@@ -17,9 +17,12 @@ export default class Cart extends Component {
         .reduce((prev, current) => prev+ current, 0) //add all the values in the array from map to produce a value
         .toFixed(2)
       ),
-      // cart: this.props.cart,
     }
   }
+
+    componentDidMount(){
+      localStorage.setItem('url',window.location.pathname)
+    }
 
     componentDidUpdate(prevprops){
       if(prevprops!== this.props){
@@ -40,27 +43,17 @@ export default class Cart extends Component {
       <div className={styles.cart}>
         <h1>CART</h1>
 
-        <CartComponent cart={this.props.cart}
+        <CartComponent
+        type="cart"
+        cart={this.props.cart}
         selectedCurrency={this.props.selectedCurrency}
-        changeAttribute={this.props.changeAttribute} />
-
-        {/* {console.log("cart in props",this.props.cart)}
-        {console.log("cart in state",this.state.cart)} */}
-
-
-        {/* { console.log(
-          this.props.cart.map(element => {
-            let filtered = element.prices.filter(price => price.currency.symbol===this.props.selectedCurrency)
-            return element.price = filtered[0].amount* element.count
-          })
-          .reduce((prev, current) => prev+ current, 0)
-        )} */}
+        changeCount={this.props.changeCount} />
 
         <table>
           <tbody>
               <tr>
                   <td>Tax 21%</td>
-                  <td><h3>{this.props.selectedCurrency}&nbsp;{(0.21*this.state.amount).toFixed(2)}</h3></td>
+                  <td><h3>{this.props.selectedCurrency}&nbsp;{(this.state.amount + (0.21*this.state.amount)).toFixed(2)}</h3></td>
               </tr>
               <tr>
                   <td>Quantity</td>

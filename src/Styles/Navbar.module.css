@@ -23,13 +23,22 @@ li{
     justify-content: center;
 }
 
+.link{
+    text-decoration: none;
+}
+
+.link:active{
+    color: black;
+}
+
 .active::after{
     content: "";
-    width: 5vw;
+    width: 6vw;
     height: 5px;
     background-color: #5ECE7B;
     position: absolute;
     bottom: -1.2rem;
+    text-decoration: none;
 }
 
 #logo{
@@ -78,11 +87,18 @@ li{
     border-radius: 50%;
 }
 
+.container{
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    height: 92vh;
+}
+
 .currencies{
     height: fit-content;
     width: 8vw;
     position: absolute;
-    transform: translateX(-10%);
+    right: 11%;
     z-index: 0;
     display: flex;
     flex-direction: column;
@@ -93,6 +109,10 @@ li{
     box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
     -webkit-box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 8px 20px -4px rgba(0,0,0,0.75);
+}
+
+.transform{
+    transform: rotate(180deg);
 }
 
 .closed{
