@@ -21,6 +21,7 @@ export default class CartComponent extends Component {
   render() {
     return (
       <div className={styles.outer}>
+        {console.log(this.state)}
 
       { 
         this.props.cart.map((item, index) => ( item &&
@@ -103,7 +104,7 @@ export default class CartComponent extends Component {
                 >-</button>
               </div>
               
-              <img className={styles.cartimg} src={item.gallery[this.state.gallery[item.key] || 0]} alt="" />
+              <img className={styles.cartimg} src={item.gallery[this.state.gallery[index] || 0]} alt="" />
 
               {
               item.gallery.length>1 && this.props.type==="cart" &&
@@ -111,8 +112,8 @@ export default class CartComponent extends Component {
                   <svg 
                   onClick={() => {
                     //if true, this is the first image
-                    if(this.state.gallery[item.key] ===0 || undefined) return 
-                    else this.changeimg({[item.key]: (this.state.gallery[item.key] || 0) -1}, item.key)
+                    if(this.state.gallery[index] ===0 || undefined) return 
+                    else this.changeimg({[index]: (this.state.gallery[index] || 0) -1}, index)
                   }}
                   width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="24" height="24" fill="black" fillOpacity="0.73"/>
@@ -122,8 +123,8 @@ export default class CartComponent extends Component {
                   <svg 
                   onClick={() => {
                     //if true, this is the last image
-                    if((this.state.gallery[item.key] ===(item.gallery.length-1)) || item.gallery.length===1) return
-                    else this.changeimg({[item.key]: (this.state.gallery[item.key] || 0) +1}, item.key)
+                    if((this.state.gallery[index] ===(item.gallery.length-1)) || item.gallery.length===1) return
+                    else this.changeimg({[index]: (this.state.gallery[index] || 0) +1}, index)
                   }}
                   width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="24" height="24" transform="matrix(-1 0 0 1 24 0)" fill="black" fillOpacity="0.73"/>
